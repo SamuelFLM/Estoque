@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Estoque.API.Models
 {
-    public record AddEstoque(
+    public record AddProduto(
         string Nome, 
         string Marca, 
         double Preco,
