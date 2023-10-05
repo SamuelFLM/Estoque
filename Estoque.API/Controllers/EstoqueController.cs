@@ -39,6 +39,13 @@ namespace Estoque.API.Controllers
             return Ok(produto);
         }
 
+        [HttpGet("GetByProduct")]
+        public IActionResult GetByProduct(string produto)
+        {
+            var item = _produto.Produtos.Where(x => x.Nome == produto);
+            return Ok(item);
+        }
+
         [HttpPost]
         public IActionResult Post(AddProduto model)
         {
@@ -62,6 +69,9 @@ namespace Estoque.API.Controllers
 
             if (produto == null)
                 return NotFound();
+
+            if (model.ValidadeProduto == DateTime.MinValue)
+                return BadRequest();
 
             produto.UpdateProduto(model.Nome, model.Marca, model.Preco, model.ValidadeProduto);
 
