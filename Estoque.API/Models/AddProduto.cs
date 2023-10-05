@@ -5,8 +5,13 @@ using System.Threading.Tasks;
 
 namespace Estoque.API.Models
 {
-    public class AddEstoque
+    public record AddEstoque(
+        string Nome, 
+        string Marca, 
+        double Preco,
+        DateTime ValidadeProduto
+    )
     {
-        
+
     }
 }
