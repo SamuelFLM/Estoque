@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Estoque.API\Estoque.API.csproj" />
+  </ItemGroup>
+
 </Project>
