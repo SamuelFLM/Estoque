@@ -22,14 +22,14 @@ namespace Estoque.API.Controllers
 
 
         [HttpGet]
-        public IActionResult Obter()
+        public IActionResult Get()
         {
             var produtos = _produto.Produtos;
             return Ok(produtos);
         }
 
         [HttpGet("{id}")]
-        public IActionResult ObterPorId(int id)
+        public IActionResult GetById(int id)
         {
             var produto = _produto.Produtos.SingleOrDefault(x => x.Id == id);
 
@@ -40,7 +40,7 @@ namespace Estoque.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Criar(AddProduto model)
+        public IActionResult Post(AddProduto model)
         {
             Produto produto = new Produto(
                 model.Nome,
@@ -52,7 +52,39 @@ namespace Estoque.API.Controllers
 
             _produto.SaveChanges();
 
-            return CreatedAtAction(nameof(ObterPorId), new { id = produto.Id }, produto);
+            return CreatedAtAction(nameof(GetById), new { id = produto.Id }, produto);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, UpdateProduto model)
+        {
+            var produto = _produto.Produtos.SingleOrDefault(x => x.Id == id);
+
+            if (produto == null)
+                return NotFound();
+
+            produto.UpdateProduto(model.Nome, model.Marca, model.Preco, model.ValidadeProduto);
+
+            _produto.Update(produto);
+
+            _produto.SaveChanges();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var produto = _produto.Produtos.SingleOrDefault(x => x.Id == id);
+
+            if (produto == null)
+                return NotFound();
+
+            _produto.Remove(produto);
+
+            _produto.SaveChanges();
+
+            return NoContent();
         }
     }
 }
