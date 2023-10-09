@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jRmwzLaRvBbRnJtZZPoIYBf/H4y5paCZYyFDoq74ACHv6ckYNZWOofov5HKU3WiB21qF/pdMWP9LExCQuQ+dpA==",
+  "dgSpecHash": "efyNXH6MmmJUF0XKVvQJE5+/lzcEuDFUtedWS8wCYNDJA8OFvsdSDm4waN0HfZDaX/tEBI9Bzu5llkseuaCLrQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj",
+  "projectFilePath": "C:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lazer\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Lazer\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

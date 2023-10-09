@@ -6,6 +6,7 @@ using Estoque.API.Persistence;
 using Estoque.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using Estoque.API.Entities;
+using Estoque.API.Persistence.Repositories;
 
 namespace Estoque.API.Controllers
 {
@@ -13,25 +14,25 @@ namespace Estoque.API.Controllers
     [ApiController]
     public class EstoqueController : ControllerBase
     {
-        private readonly ProdutoContext _produto;
+        private readonly IProdutoRepository _repository;
 
-        public EstoqueController(ProdutoContext produto)
+        public EstoqueController(IProdutoRepository repository)
         {
-            _produto = produto;
+            _repository = repository;
         }
 
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
-            var produtos = _produto.Produtos;
+            var produtos = _repository.GetAll();
             return Ok(produtos);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var produto = _produto.Produtos.SingleOrDefault(x => x.Id == id);
+            var produto = _repository.GetById(id);
 
             if (produto == null)
                 return NotFound();
@@ -42,7 +43,7 @@ namespace Estoque.API.Controllers
         [HttpGet("GetByProduct")]
         public IActionResult GetByProduct(string produto)
         {
-            var item = _produto.Produtos.Where(x => x.Nome == produto);
+            var item = _repository.GetByProduct(produto);
             return Ok(item);
         }
 
@@ -55,9 +56,8 @@ namespace Estoque.API.Controllers
                 model.Preco,
                 model.ValidadeProduto
             );
-            _produto.Produtos.Add(produto);
 
-            _produto.SaveChanges();
+            _repository.Add(produto);
 
             return CreatedAtAction(nameof(GetById), new { id = produto.Id }, produto);
         }
@@ -65,7 +65,7 @@ namespace Estoque.API.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, UpdateProduto model)
         {
-            var produto = _produto.Produtos.SingleOrDefault(x => x.Id == id);
+            var produto = _repository.GetById(id);
 
             if (produto == null)
                 return NotFound();
@@ -75,9 +75,7 @@ namespace Estoque.API.Controllers
 
             produto.UpdateProduto(model.Nome, model.Marca, model.Preco, model.ValidadeProduto);
 
-            _produto.Update(produto);
-
-            _produto.SaveChanges();
+            _repository.Update(produto);
 
             return NoContent();
         }
@@ -85,14 +83,12 @@ namespace Estoque.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var produto = _produto.Produtos.SingleOrDefault(x => x.Id == id);
+            var produto = _repository.GetById(id);
 
             if (produto == null)
                 return NotFound();
 
-            _produto.Remove(produto);
-
-            _produto.SaveChanges();
+            _repository.Delete(produto);
 
             return NoContent();
         }

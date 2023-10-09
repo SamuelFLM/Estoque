@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj": {}
+    "C:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj": {
+    "C:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj",
+        "projectUniqueName": "C:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj",
         "projectName": "Estoque.API",
-        "projectPath": "c:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj",
+        "projectPath": "C:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\Estoque.API.csproj",
         "packagesPath": "C:\\Users\\Lazer\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\obj\\",
+        "outputPath": "C:\\Users\\Lazer\\OneDrive\\Área de Trabalho\\Estoque\\Estoque.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
