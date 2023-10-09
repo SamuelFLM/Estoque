@@ -75,7 +75,6 @@ if __name__ == "__main__":
     api = Produto()
     
     response = list(api.get())
-    
     lista = []
     
     for i, valor in enumerate(response):

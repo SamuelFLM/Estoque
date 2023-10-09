@@ -1,26 +1,14 @@
 import PySimpleGUI as sg
 from Models.produto import Produto
-
+from utils import *
 
 class TelaEstoque:
     def __init__(self) -> None:
         self.bg_color = "#FFFFFF"
         self.text_color = "#414141"
         sg.theme_background_color(self.bg_color)
-        # self.produtos = [["1", "Doritos", "Elma Chips", 15.00, "07-10-2023", "07-10-2023"]]
-        self.response = list(Produto().get())
-        self.produtos = []
-        for i, valor in enumerate(self.response):
-            self.produtos.append(
-                [
-                    self.response[i]["id"],
-                    self.response[i]["nome"],
-                    self.response[i]["marca"],
-                    self.response[i]["preco"],
-                    self.response[i]["dataCadastro"][:10],
-                    self.response[i]["validadeProduto"][:10],
-                ]
-            )
+        self.produtos = atualizarProdutos()
+        
 
     def front(self):
         cabecalho = [
