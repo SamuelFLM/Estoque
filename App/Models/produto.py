@@ -26,7 +26,7 @@ class Produto:
 
     def get_by_product(self, product):
         try:
-            response = requests.get(f"{self.url}/GetByProduct/{product}")
+            response = requests.get("http://localhost:5208/v1/produto/GetByProduct/" + product)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as err:
